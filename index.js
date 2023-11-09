@@ -1,7 +1,7 @@
 import { GuardarSiembra, VerSiembras, onGetSiembra } from "./firebase";
 
 
-const SiembraForm = document.getElementById('siembraForm')
+const SiembraForm = document.getElementById('SiembraForm')
 const siembraContainer = document.getElementById('Siemmbra-container')
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -10,14 +10,15 @@ window.addEventListener('DOMContentLoaded', async () => {
   
     querySnapshot.forEach((doc) => {
       const siembra = doc.data();
-      html += 
-          <div>
-            <p>${siembra.Semilla}</p>
-            <p>${siembra.TipoSuelo}</p>
-            <p>${siembra.Area}</p>
-            <p>${siembra.Fecha}</p>
-          </div>
-          ;
+      html += `
+      <div>
+      <p>${siembra.Semilla}</p>
+      <p>${siembra.TipoSuelo}</p>
+      <p>${siembra.Area}</p>
+      <p>${siembra.Fecha}</p>
+      </div>
+      `;
+    
     });
     siembraContainer.innerHTML = html;
 
@@ -35,7 +36,7 @@ SiembraForm.addEventListener('submit', (e) =>
   const Area = SiembraForm['IArea']
   const Fecha = SiembraForm['IFecha']
 
-  console.log(Semilla.value, Suelo.value, Area.value, Fecha.value)
+  GuardarSiembra(Semilla.value, Suelo.value, Area.value, Fecha.value)
 
   
   SiembraForm.reset()

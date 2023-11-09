@@ -1,6 +1,6 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-//import {getFirestore, collection, addDoc, getDocs} from "(minuto 18 del tutorial)"
+  import { getFirestore, collection, addDoc, getDocs} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,7 +31,7 @@
   }
 
   export const GuardarSuelo = (TipoSuelo, color, PH)=>{
-    addDoc(collection(db ,"Siembra"), {TipoSuelo, color, PH})
+    addDoc(collection(db ,"Suelo"), {TipoSuelo, color, PH})
   }
 
   //obtener datos
