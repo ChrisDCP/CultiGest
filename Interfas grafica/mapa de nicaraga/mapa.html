@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Lugares Fértiles en Nicaragua</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh; /* El mapa ocupará el 100% del alto de la ventana */
+    }
+    .non-fertile-icon {
+  
+ 
+        background-color: red; /* Establece el color de fondo del marcador en rojo */
+          
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([12.8654, -85.2072], 8); // Coordenadas del centro de Nicaragua y nivel de zoom
+
+    // Agregar el mapa base de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Añadir marcadores para lugares fértiles de arroz, frijoles, maíz y sorgo
+    var lugaresFertiles = {
+      "Arroz": [12.8654, -85.2072], // Coordenadas para lugares fértiles de arroz
+      "Arroz1": [ 12.144218, -85.703591], // Coordenadas para lug
+      "Frijoles": [12.4312, -86.8817], // Coordenadas para lugares fértiles de frijoles
+      "Frijoles1": [12.366677741373364, -85.58333709847736], // Coordenadas para lugares fértiles de frijoles
+      "Maíz": [13.2528, -86.2630], // Coordenadas para lugares fértiles de maíz
+      "Sorgo": [11.8455, -86.1946] // Coordenadas para lugares fértiles de sorgo
+    };
+
+    // Añadir marcadores para lugares no fértiles
+    var lugaresNoFertiles = {
+      "arroz": [11.969365642914603, -85.16929867128783], // Coordenadas para lugares no fértiles (desierto)
+      "No acto para arroz1": [12.4312, -86.8817] // Coordenadas para lugares no fértiles (zona árida)
+    };
+
+    // Añadir marcadores de lugares fértiles al mapaY
+    for (var lugar in lugaresFertiles) {
+      L.marker(lugaresFertiles[lugar]).addTo(map).bindPopup(lugar);
+    }
+
+    // Añadir marcadores de lugares no fértiles al mapa
+    for (var lugarNoFertil in lugaresNoFertiles) {
+      L.marker(lugaresNoFertiles[lugarNoFertil], {icon: L.divIcon({className: 'non-fertile-icon', html: lugarNoFertil})}).addTo(map);
+    }
+
+    // Añadir evento de cambio de tamaño al mapa para actualizar su vista cuando el tamaño de la ventana cambie
+    map.on('resize', function() {
+      map.invalidateSize();
+    });
+  </script>
+</body>
+</html>
