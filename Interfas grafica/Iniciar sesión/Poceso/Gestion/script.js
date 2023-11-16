@@ -1,12 +1,16 @@
+import { GuardarSiembra } from "../../../js/firebase.js";
+
 document.getElementById('cultivo-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    var nombre = document.getElementById('nombre').value;
-    var siembra = document.getElementById('siembra').value;
-    var agua = document.getElementById('agua').value;
+    var nombre = document.getElementById('Nombre').value;
+    var siembra = document.getElementById('Fecha').value;
+    var agua = document.getElementById('Area').value;
 
-    var resultadoDiv = document.getElementById('resultado');
-    resultadoDiv.innerHTML = `Cultivo: ${nombre}<br>Fecha de Siembra: ${siembra}<br>Cantidad de Agua: ${agua} litros por semana`;
+    GuardarSiembra(nombre,siembra,agua)
+
+   /* var resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = `Cultivo: ${nombre}<br>Fecha de Siembra: ${siembra}<br>Cantidad de Agua: ${agua} litros por semana`;*/
 });
 
 

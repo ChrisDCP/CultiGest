@@ -17,7 +17,8 @@
   <body>
     <div class="container" id="container">
       <div class="form-container register-container">
-        <form>
+        <!-- form de registro-->
+        <form id="register-form">
           <h1>Regístrate aquí</h1>
           <div class="form-control">
             <input type="text" id="username" placeholder="Nombre" />
@@ -34,20 +35,19 @@
             <small id="password-error"></small>
             <span></span>
           </div>
-          <input type="checkbox" name="checkbox" id="checkbox" />
-          <label for="">Agrinomo</label>
-          <input type="checkbox" name="checkbox" id="checkbox" />
+          <input type="checkbox" name="checkbox" id="agronomo_checkbox" />
+          <label for="">Agronomo</label>
+          <input type="checkbox" name="checkbox" id="tecnico_checkbox" />
           <label for="">tegnico agronomo</label>
           <button type="submit" value="submit">Registrar</button>
           <span>o usa tu cuenta</span>
           <div class="social-container">
-            <a href="#" class="social"
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+            <a href="#" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social" id="login_google"><i class="fa-brands fa-google"></i></a>
             <a href="#" class="social"><i class="fa-brands fa-tiktok"></i></a>
           </div>
         </form>
+        <!--fin-->
       </div>
 
       <div class="form-container login-container">
@@ -66,7 +66,7 @@
 
           <div class="content">
             <div class="checkbox">
-              <input type="checkbox" name="checkbox" id="checkbox" />
+              <input type="checkbox" name="checkbox" id="recuerda_checkbox" />
               <label for="">Recuérdame</label>
              
             </div>
@@ -117,6 +117,7 @@
         </div>
       </div>
     </div>
+    <script type="module" src="main.js"></script>
   </body>
-  <script src="main.js"></script>
+  
 </html>

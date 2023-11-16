@@ -1,3 +1,5 @@
+import {registrarUsuario, logInwithgoogle} from "../js/firebase.js";
+
 // Animations
 const registerButton = document.getElementById("register");
 const loginButton = document.getElementById("login");
@@ -12,14 +14,18 @@ loginButton.addEventListener("click", () => {
 });
 
 
+
+
 // Check Register Error
-const form = document.querySelector('form')
+const form = document.querySelector('register-form')
 const username = document.getElementById('username')
 const usernameError = document.querySelector("#username-error")
 const email = document.getElementById('email')
 const emailError = document.querySelector("#email-error")
 const password = document.getElementById('password')
 const passwordError = document.querySelector("#password-error")
+
+const loginGoogle= document.querySelector("#login_google")
 
 // Show input error message
 function showError(input, message) {
@@ -94,6 +100,7 @@ function getFieldName(input) {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1)
 }
 
+//guardar el usuario
 // Event listeners
 form.addEventListener('submit', function (e) {
     e.preventDefault()
@@ -102,6 +109,7 @@ form.addEventListener('submit', function (e) {
         // checkLength(username, 3, 15)
         // checkLength(password, 6, 25)
         // checkEmail(email)
+        registrarUsuario(email.value, password.value);
     } 
 })
 
@@ -176,4 +184,9 @@ lgForm.addEventListener('submit', function (e){
     if (!checkRequiredLg([lgEmail, lgPassword])) {
         checkEmail2(lgEmail)
     }
+})
+
+//log in google
+loginGoogle.addEventListener('click', e => {
+   logInwithgoogle()
 })
