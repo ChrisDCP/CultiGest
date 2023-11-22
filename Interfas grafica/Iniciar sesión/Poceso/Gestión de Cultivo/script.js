@@ -1,4 +1,4 @@
-import { GuardarGestion } from "../../../js/firebase";
+import GuardarGestion  from "../../../js/firebase";
 
  
 const formplanta = document.querySelector("plant-form");
